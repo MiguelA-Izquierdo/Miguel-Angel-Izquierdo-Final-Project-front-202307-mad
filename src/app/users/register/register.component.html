@@ -1,0 +1,31 @@
+<form [formGroup]="newUserForm" aria-label="register-user" (submit)="handleSubmit()">
+
+  <div class="container-avatar">
+    <div *ngIf="this.avatar.url" class="mainPhoto" [ngStyle]="{'background-image': 'url(' +avatar.url +')'}">
+    </div>
+    <label for="avatar">Foto principal ✏️</label>
+    <input id="avatar" class="avatar-input hidden" type="file" formControlName="avatar" (change)="changeAvatar($event)">
+  </div>
+  <div class="container-input">
+    <input type="text" formControlName="userName" placeholder="Username" required />
+    <span class="required-message"
+      *ngIf="this.newUserForm.get('userName')!.errors && this.newUserForm.get('userName')!.dirty">Nombre de usuario
+      requerido</span>
+  </div>
+  <span class="required-message"
+    *ngIf="this.newUserForm.get('password')!.errors && this.newUserForm.get('password')!.dirty">Contraseña
+    obligatorio</span>
+  <input type="password" formControlName="password" placeholder="Contraseña" required />
+  <span class="required-message"
+    *ngIf="this.newUserForm.get('email')!.errors && this.newUserForm.get('email')!.dirty">Introduzca un email
+    valido</span>
+  <input type="email" formControlName="email" placeholder="email" required />
+  <span class="required-message"
+    *ngIf="this.newUserForm.get('email')!.errors && this.newUserForm.get('email')!.dirty">Nombre requerido</span>
+  <input type="text" formControlName="firstName" placeholder="Nombre" required />
+  <span class="required-message"
+    *ngIf="this.newUserForm.get('lastName')!.errors && this.newUserForm.get('lastName')!.dirty">Apellidos
+    requerido</span>
+  <input type="text" formControlName="lastName" placeholder="Apellidos" required />
+  <button [disabled]="this.newUserForm.invalid || !this.avatar.url" type="submit">Crear</button>
+</form>

@@ -1,0 +1,48 @@
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&family=Poppins:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "League Spartan", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+body,
+html {
+  width: 100%;
+  min-height: 100dvh;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  // overflow-x: hidden;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 3px;
+  border: none;
+}
+
+input {
+  border: none;
+  padding: 7px;
+}
+
+div {
+  border-radius: 5px;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+input {
+  padding: 5px;
+  border-radius: 5px;
+}

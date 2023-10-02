@@ -1,0 +1,19 @@
+.container-stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  li {
+    all: unset;
+    font-size: 3em;
+    color: white;
+  }
+  li li:hover {
+    color: yellow;
+  }
+
+  .start-active {
+    color: yellow;
+  }
+}

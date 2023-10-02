@@ -1,0 +1,8 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<div class="container-stars">
+  <ol *ngFor="let star of stars">
+    <li [ngClass]="{'start-active': star.state}" role="button" [value]="star.position" (click)="handleStar($event)">★
+    </li>
+  </ol>
+</div>

@@ -1,0 +1,13 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<nav class="menu-nav">
+  <ul>
+    <li *ngFor="let item of menuOptions">
+      <a (click)="changeStateMenu()" [routerLink]="item.path">{{item.label}}</a>
+    </li>
+    <li>
+      <span role="button" *ngIf="!currentUser$.token" (click)="handleLogin()">Login</span>
+      <span role="button" *ngIf="currentUser$.token" (click)="handleLogout()">Logout</span>
+    </li>
+  </ul>
+</nav>

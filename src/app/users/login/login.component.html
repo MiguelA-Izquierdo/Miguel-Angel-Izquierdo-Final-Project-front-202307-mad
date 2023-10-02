@@ -1,0 +1,23 @@
+<mat-spinner *ngIf="loginState === 'loading'"></mat-spinner>
+<form *ngIf="loginState === 'logout'" [formGroup]="newLoginForm" aria-label="login-user" (submit)="handleSubmit()">
+  <legend>Haz login</legend>
+  <input type="text" formControlName="userName" placeholder="Nombre de usuario" required />
+  <span class="required-message"
+    [hidden]="newLoginForm.get('userName')!.valid || newLoginForm.get('userName')!.pristine">El
+    nombre de usuario debe contener
+    al
+    menos 5 caracteres</span>
+  <input type="password" formControlName="password" placeholder="Contraseña" required />
+  <span class="required-message"
+    [hidden]="newLoginForm.get('password')!.valid || newLoginForm.get('password')!.pristine">El
+    campo debe
+    contener
+    al menos 5 caracteres</span>
+  <button type="submit">Login</button>
+  <div class="container-new-user">
+    <span>¿No tienes cuenta?</span>
+    <a [routerLink]="[ '/users/register' ]">Haz click</a>
+  </div>
+</form>
+<span *ngIf="loginState === 'error'" class="error-message">Usuario o contraseña incorrectos</span>
+<button *ngIf="loginState === 'error'" (click)="handleBack()">Volver</button>

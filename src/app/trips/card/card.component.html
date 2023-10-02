@@ -1,0 +1,33 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<div class="container-card">
+  <div class="gallery">
+    <section>
+      <img [ngSrc]="travel.mainPhoto.urlCard" width="250" height="250" alt="Foto principal del vije">
+      <ng-container *ngFor="let day of travel.days">
+        <ng-container *ngFor="let activity of day.activities">
+          <ng-container *ngFor="let photo of activity.photos">
+            <img [ngSrc]="photo.urlCard" width="250" height="250" alt="Titulo de la foto: {{photo.publicId}}">
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </section>
+  </div>
+  <a [routerLink]="['/trips/travel/',travel.id]">
+    <div class="info-card">
+      <div>
+        <h2><em>{{travel.city}}</em></h2>
+        <span><em>{{travel.totalDays}}</em> días</span>
+      </div>
+      <span class="price"><em>{{travel.budget}}€</em> p/p</span>
+    </div>
+  </a>
+  <div class="container-incons">
+    <p>@{{travel.traveler.userName}}</p>
+    <div *ngIf=" travel.traveler && user$ && travel.traveler.id === user$.id">
+      <span (click)="handleModify()" role="button">✏️</span>
+      <span (click)="handleDelete()" role="button">🗑️</span>
+    </div>
+  </div>
+
+</div>

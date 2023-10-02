@@ -1,0 +1,13 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<header>
+  <div>
+    <img (click)="handleHome()" role="button" src="../../assets/img/logo.svg" hei alt="Logo de la web" height="80px"
+      width="80px">
+    <h1>TravelBook</h1>
+
+  </div>
+  <trips-menu [style.right]="isOpenMenu ? '0%' : '-100%'" [menuOptions]="menuOptions"></trips-menu>
+  <img src="../../../assets/incons/menuBurguer.png" class="burguer-icon" (click)="changeStateMenu()" alt="Boton menu"
+    role="button" aria-label="button">
+</header>

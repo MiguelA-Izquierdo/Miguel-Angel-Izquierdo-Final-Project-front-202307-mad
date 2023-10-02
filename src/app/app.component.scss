@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100dvh;
+  flex-grow: 1;
+  background-image: url("../assets/img/main-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  // isolation: isolate;
+}

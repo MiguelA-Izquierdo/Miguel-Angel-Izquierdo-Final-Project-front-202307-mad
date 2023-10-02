@@ -1,0 +1,51 @@
+<form [ngClass]="{'hidden': currentStep!==1}" [formGroup]="firstStepForm" aria-label="add-travel"
+  (submit)="handleSubmitFirstStep()">
+  <div class="mainPhoto" [ngStyle]="{'background-image': 'url(' +mainPhoto.url +')'}">
+  </div>
+  <label for="mainPhoto">Foto principal ✏️</label>
+  <input class="hidden" formControlName="mainPhoto" id="mainPhoto" placeholder="Foto principal" type="file"
+    (change)="changeMainPhoto($event)">
+  <input formControlName="country" placeholder="Pais" type="text">
+  <input formControlName="city" placeholder="Ciudad" type="text">
+  <input *ngIf="!travelIdParams" formControlName="totalDays" placeholder="Nº Dias" type="number">
+  <input formControlName="travellers" placeholder="Nº Viajeros" type="number">
+  <input formControlName="budget" placeholder="Presupuesto" type="number">
+  <button class="firstStepButton" [disabled]=" firstStepForm.invalid || !mainPhoto.url">Siguiente</button>
+</form>
+<ng-container *ngIf="currentStep !==1">
+  <div class="container-paginator">
+    <button [disabled]="currentDay===0" (click)="handlePreviousPage()">←</button>
+    <span>Dia {{currentDay+1}} de {{newTravel.days.length}}</span>
+    <button [disabled]="currentDay===newTravel.days.length-1" (click)="handleNextPage()">→</button>
+  </div>
+</ng-container>
+
+<ng-container *ngFor="let day of newTravel.days">
+  <div class="container-activities" [ngClass]="{'hidden': day.dayNumber !== currentDay || currentStep ===1}">
+    <trips-starsreview [stars]="starsState"></trips-starsreview>
+    <form [formGroup]="activitiesForm" (submit)="handleSubmitActivity()">
+      <input formControlName="title" type=" text" placeholder="Nombre de la actividad">
+      <textarea class="input-description" formControlName="description" type="text"
+        placeholder="Descripcion"></textarea>
+      <input formControlName="price" type="number" placeholder="Precio">
+      <label for="photos">Añade fotos ✏️</label>
+      <input class="hidden" formControlName="photos" type="file" id="photos" multiple placeholder="Añade fotos"
+        (change)="changeInputPhotos($event)">
+      <button [disabled]=" this.activitiesForm.invalid">Añadir</button>
+    </form>
+  </div>
+</ng-container>
+
+<button *ngIf="newTravel.days.length-1 === currentDay" (click)="handleCreateTravel()">{{travelIdParams ?
+  'Modificar
+  viaje' : 'Crear viaje'}}</button>
+
+<section *ngIf="newTravel.days && currentStep !==1" class="container-details">
+  <details class="details-activities" *ngFor="let activity of newTravel.days[currentDay].activities">
+    <summary>{{activity.title}}</summary>
+    <section class="details-activities">
+      <trips-starsreview [stars]="activity.assessment"></trips-starsreview>
+      <span>{{activity.description}}</span>
+    </section>
+  </details>
+</section>

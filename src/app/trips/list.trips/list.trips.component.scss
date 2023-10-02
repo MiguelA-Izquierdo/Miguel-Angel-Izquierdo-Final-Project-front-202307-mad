@@ -1,0 +1,65 @@
+:host {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+
+  .trips-container {
+    width: 100%;
+  }
+
+  .container-paginator {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+    button {
+      all: unset;
+      font-size: 2em;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    span {
+      display: flex;
+      align-items: center;
+      font-size: 1.3rem;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+  .filter-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px white;
+    label {
+      width: fit-content;
+      margin-right: 0.5rem;
+    }
+  }
+  ol {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: white;
+}
+
+label {
+  width: 100%;
+}

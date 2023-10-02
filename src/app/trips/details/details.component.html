@@ -1,0 +1,26 @@
+<ng-container *ngIf="travel.days">
+  <div class="container-paginator">
+    <button [disabled]="currentDay===0" (click)="handlePreviousPage()">←</button>
+    <span>Dia {{currentDay+1}} de {{travel.days.length}}</span>
+    <button [disabled]="currentDay===travel.days.length-1" (click)="handleNextPage()">→</button>
+  </div>
+  <div class="gallery">
+    <section>
+      <ng-container *ngFor="let activity of travel.days[currentDay].activities">
+        <ng-container *ngFor="let photo of activity.photos">
+          <img [ngSrc]="photo.urlCard" width="300" height="181" alt="Titulo de la foto: {{photo.publicId}}">
+        </ng-container>
+      </ng-container>
+    </section>
+  </div>
+
+  <section *ngIf="travel.days" class="container-details">
+    <details *ngFor="let activity of travel.days[currentDay].activities">
+      <summary>{{activity.title}}</summary>
+      <section class="details-activities">
+        <trips-starsreview [stars]="activity.assessment"></trips-starsreview>
+        <span>{{activity.description}}</span>
+      </section>
+    </details>
+  </section>
+</ng-container>

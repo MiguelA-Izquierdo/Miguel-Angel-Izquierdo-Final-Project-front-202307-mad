@@ -1,0 +1,21 @@
+<mat-spinner *ngIf="stateList === 'loading'" class="spinner"></mat-spinner>
+<div *ngIf="stateList === 'loaded'" class="trips-container">
+  <form class="filter-container">
+    <label *ngIf="user$" htmlFor="cbox1">Solo
+      mis viajes</label>
+    <input (change)="changeInputOwner($event)" type="checkbox" id="cbox1" value="first_checkbox" />
+
+  </form>
+  <ol>
+    <ng-container *ngFor=" let travel of trips">
+      <li *ngIf="travel.page===currentPage">
+        <trips-card [travel]="travel" (deleteTravel)="handleDeleteTravel($event)"></trips-card>
+      </li>
+    </ng-container>
+  </ol>
+  <div class="container-paginator">
+    <button [disabled]="currentPage===1" (click)="handlePreviousPage()">←</button>
+    <span>Page {{currentPage}} / {{totalPages}} </span>
+    <button [disabled]="currentPage===totalPages" (click)="handleNextPage()">→</button>
+  </div>
+</div>

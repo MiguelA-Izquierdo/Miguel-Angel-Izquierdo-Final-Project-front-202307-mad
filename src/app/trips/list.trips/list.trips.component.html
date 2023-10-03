@@ -1,7 +1,7 @@
 <mat-spinner *ngIf="stateList === 'loading'" class="spinner"></mat-spinner>
 <div *ngIf="stateList === 'loaded'" class="trips-container">
-  <form class="filter-container">
-    <label *ngIf="user$" htmlFor="cbox1">Solo
+  <form *ngIf="user$" class="filter-container">
+    <label htmlFor="cbox1">Solo
       mis viajes</label>
     <input (change)="changeInputOwner($event)" type="checkbox" id="cbox1" value="first_checkbox" />
 

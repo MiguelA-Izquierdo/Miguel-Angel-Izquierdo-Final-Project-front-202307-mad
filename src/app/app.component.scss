@@ -7,11 +7,11 @@ main {
   display: flex;
   justify-content: center;
   width: 100%;
-  min-height: 100dvh;
+  min-height: 83dvh;
   flex-grow: 1;
+  padding: 1rem;
   background-image: url("../assets/img/main-bg.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  // isolation: isolate;
 }

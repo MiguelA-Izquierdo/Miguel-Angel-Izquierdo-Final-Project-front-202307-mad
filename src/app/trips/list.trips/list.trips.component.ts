@@ -48,6 +48,7 @@ export class ListTripsComponent implements OnInit {
           value: this.user$.id,
         })
         .subscribe((travels) => {
+          this.currentPage = 1;
           this.trips = this.assignPaginated(travels);
         });
     } else {

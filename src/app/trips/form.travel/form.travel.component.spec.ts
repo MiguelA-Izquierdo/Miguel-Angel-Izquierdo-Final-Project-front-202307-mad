@@ -8,7 +8,7 @@ import { HomeComponent } from "src/app/home/home.component";
 import { FormTravelService } from "src/app/services/form-travel.service/form-travel.service";
 import { MediaFileService } from "src/app/services/media.files/media.file.service";
 import { RepoTripsService } from "src/app/services/repo.trips.service/repo.trips.service.service";
-import { Travel } from "src/app/types/travel";
+import { DayTravel, Travel } from "src/app/types/travel";
 import { ImgData } from "src/app/types/user";
 import { mockFirstStepForm } from "src/app/utils/test.mocks";
 import { StarsReviewComponent } from "../stars.review/stars.review.component";
@@ -49,6 +49,8 @@ describe("Given form component without params", () => {
       it("Then currentStep should be 2", () => {
         component.firstStepForm.setValue(mockFirstStepForm);
         component.firstStepForm.updateValueAndValidity();
+        component.newTravel.totalDays = 2;
+        component.newTravel.days = [] as DayTravel[];
         component.mainPhoto = { url: "test-Url" } as ImgData;
         component.handleSubmitFirstStep();
         expect(component.currentStep).toBe(2);

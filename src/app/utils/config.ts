@@ -32,12 +32,12 @@ export const menuOptions = [
 ];
 
 export const firstStepFormEmpty = {
-  country: ["", []],
-  city: ["", []],
-  totalDays: ["", []],
-  travellers: ["", []],
-  budget: ["", []],
-  mainPhoto: ["", []],
+  country: ["", [Validators.required]],
+  city: ["", [Validators.required]],
+  totalDays: ["", [Validators.required]],
+  travellers: ["", [Validators.required]],
+  budget: ["", [Validators.required]],
+  mainPhoto: [""],
 };
 
 export const activitiesFormEmpty = {

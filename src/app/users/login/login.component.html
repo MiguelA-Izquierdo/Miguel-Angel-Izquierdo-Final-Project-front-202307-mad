@@ -1,6 +1,6 @@
 <mat-spinner *ngIf="loginState === 'loading'"></mat-spinner>
 <form *ngIf="loginState === 'logout'" [formGroup]="newLoginForm" aria-label="login-user" (submit)="handleSubmit()">
-  <legend>Haz login</legend>
+
   <input type="text" formControlName="userName" placeholder="Nombre de usuario" required />
   <span class="required-message"
     [hidden]="newLoginForm.get('userName')!.valid || newLoginForm.get('userName')!.pristine">El
@@ -13,7 +13,7 @@
     campo debe
     contener
     al menos 5 caracteres</span>
-  <button type="submit">Login</button>
+  <button type="submit">Iniciar sesion</button>
   <div class="container-new-user">
     <span>¿No tienes cuenta?</span>
     <a [routerLink]="[ '/users/register' ]">Haz click</a>

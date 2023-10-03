@@ -27,6 +27,8 @@ export class FormTravelComponent implements OnInit {
   currentDay = 0;
   starsState: Assessment[] = [];
   travelIdParams: string;
+  stateUploadPhoto: "loading" | "loaded" = "loaded";
+  stateSubmit: "sending" | "sent" = "sent";
   constructor(
     public formBuilder: FormBuilder,
     private repoTrips: RepoTripsService,
@@ -37,7 +39,6 @@ export class FormTravelComponent implements OnInit {
   ) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.travelIdParams = this.route.snapshot.paramMap.get("id")!;
-
     this.formsService.getStars().subscribe((data) => (this.starsState = data));
     this.formsService.getTravel().subscribe((data) => (this.newTravel = data));
   }
@@ -57,6 +58,7 @@ export class FormTravelComponent implements OnInit {
       this.mainPhoto = data.mainPhoto;
     });
   }
+
   handleNextPage() {
     this.currentDay++;
   }
@@ -99,10 +101,12 @@ export class FormTravelComponent implements OnInit {
   }
 
   changeInputPhotos(event: Event) {
+    this.stateUploadPhoto = "loading";
     this.mediaFilesService
       .ulploadFiles(event, this.repoTrips)
       .subscribe((data) => {
         this.activitiesPhotos = data;
+        this.stateUploadPhoto = "loaded";
       });
   }
 
@@ -117,16 +121,14 @@ export class FormTravelComponent implements OnInit {
 
   handleCreateTravel() {
     if (this.travelIdParams) {
+      this.stateSubmit = "sending";
       this.formsService
         .updateTravel(this.newTravel, this.travelIdParams)
         .subscribe(() => this.router.navigateByUrl("/home"));
     } else {
+      this.stateSubmit = "sending";
       this.formsService.createTravel(this.newTravel).subscribe(() => {
-        this.currentDay = 0;
-        this.currentStep = 1;
-        this.newTravel = { days: [{}, {}] } as Travel;
         this.formsService.resetStars();
-        this.firstStepForm.reset();
         this.router.navigateByUrl("/home");
       });
     }

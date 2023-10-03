@@ -4,6 +4,7 @@
   gap: 1.5rem;
   align-items: center;
   width: 100%;
+
   .container-paginator {
     display: flex;
     flex-direction: row;
@@ -42,12 +43,19 @@
         object-fit: cover;
       }
     }
+
+    section::-webkit-scrollbar {
+      height: 0.5rem;
+      background-color: #f0fbfa;
+    }
+    section::-webkit-scrollbar-thumb {
+      background: #91d7f2;
+    }
   }
 
   .container-details {
     height: 60%;
     width: 100%;
-    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -57,7 +65,7 @@
       flex-direction: column;
       gap: 0.5rem;
       width: 100%;
-      padding: 1rem;
+      padding-inline: 1rem;
     }
 
     span {
@@ -65,6 +73,7 @@
       font-weight: 600;
     }
     summary {
+      cursor: pointer;
       padding: 1rem;
       font-size: 1.5em;
       font-weight: bolder;

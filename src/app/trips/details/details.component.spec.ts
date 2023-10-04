@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { ActivatedRoute } from "@angular/router";
 import { of } from "rxjs";
 import { RepoTripsService } from "src/app/services/repo.trips.service/repo.trips.service.service";
@@ -13,7 +14,7 @@ describe("Given DetailsComponent", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [DetailsComponent],
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, MatProgressSpinnerModule],
 
       providers: [
         {

@@ -12,7 +12,7 @@ export class RepoUsersService implements Repository<User> {
   urlBase: string;
 
   constructor(private http: HttpClient, private storeService: StoreService) {
-    this.urlBase = "http://localhost:3300/users";
+    this.urlBase = "https://travelbook-6ty4.onrender.com/users";
   }
 
   login(dataLogin: LoginData): Observable<UserWithToken> {

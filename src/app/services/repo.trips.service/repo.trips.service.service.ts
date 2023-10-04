@@ -13,7 +13,7 @@ export class RepoTripsService implements Repository<Travel> {
   token = "";
 
   constructor(private http: HttpClient, private storeService: StoreService) {
-    this.urlBase = "http://localhost:3300/trips";
+    this.urlBase = "https://travelbook-6ty4.onrender.com/trips";
     this.storeService
       .getCurrentUser()
       .subscribe((data) => (this.token = data.token));

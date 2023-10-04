@@ -8,7 +8,7 @@ import { RepoUsersService } from "./repo.users.service";
 
 describe("Given the RepoUsersService", () => {
   let repoUsersService: RepoUsersService;
-  const url = "http://localhost:3300" + "/users";
+  const url = "https://travelbook-6ty4.onrender.com" + "/users";
   let httpClientMock: HttpTestingController;
 
   beforeEach(() => {

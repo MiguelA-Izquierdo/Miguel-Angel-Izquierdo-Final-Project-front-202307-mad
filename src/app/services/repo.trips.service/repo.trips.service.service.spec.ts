@@ -10,7 +10,7 @@ import { RepoTripsService } from "./repo.trips.service.service";
 
 describe("Given the RepoTripsServiceService", () => {
   let repoTripsService: RepoTripsService;
-  const url = "http://localhost:3300" + "/trips";
+  const url = "https://travelbook-6ty4.onrender.com" + "/trips";
   let httpClientMock: HttpTestingController;
   beforeEach(() => {
     TestBed.configureTestingModule({

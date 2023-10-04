@@ -12,6 +12,7 @@ export class DetailsComponent implements OnInit {
   travel: Travel;
   currentDay = 0;
   travelIdParams: string;
+  stateTravel: "loading" | "loaded" = "loading";
   constructor(
     private repoTrips: RepoTripsService,
     private router: Router,
@@ -23,9 +24,10 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.repoTrips
-      .getById(this.travelIdParams)
-      .subscribe((data) => (this.travel = data));
+    this.repoTrips.getById(this.travelIdParams).subscribe((data) => {
+      this.travel = data;
+      this.stateTravel = "loaded";
+    });
   }
   handleNextPage() {
     this.currentDay++;

@@ -34,7 +34,7 @@
   }
 
   form {
-    padding-block: 2rem;
+    padding-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,7 +97,7 @@
     }
     summary {
       cursor: pointer;
-      padding: 1rem;
+      padding: 1rem 1rem 0 1rem;
       font-size: 1.5em;
       font-weight: bolder;
     }

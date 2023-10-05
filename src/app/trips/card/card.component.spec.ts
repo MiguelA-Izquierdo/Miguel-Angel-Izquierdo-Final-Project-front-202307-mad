@@ -41,7 +41,7 @@ describe("CardComponent", () => {
     component.travel = {
       id: "1",
       budget: 200,
-      mainPhoto: { urlCard: "test" },
+      mainPhoto: { url: "test" },
       days: [
         {
           activities: [

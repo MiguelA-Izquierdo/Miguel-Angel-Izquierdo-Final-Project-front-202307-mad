@@ -3,11 +3,11 @@
 <div class="container-card">
   <div class="gallery">
     <section>
-      <img [ngSrc]="travel.mainPhoto.urlCard" width="250" height="250" alt="Foto principal del vije">
+      <img [ngSrc]="travel.mainPhoto.url" width="250" height="250" alt="Foto principal del vije">
       <ng-container *ngFor="let day of travel.days">
         <ng-container *ngFor="let activity of day.activities">
           <ng-container *ngFor="let photo of activity.photos">
-            <img [ngSrc]="photo.urlCard" width="250" height="250" alt="Titulo de la foto: {{photo.publicId}}">
+            <img [ngSrc]="photo.url" width="250" height="250" alt="Titulo de la foto: {{photo.publicId}}">
           </ng-container>
         </ng-container>
       </ng-container>

@@ -9,7 +9,7 @@
     <section>
       <ng-container *ngFor="let activity of travel.days[currentDay].activities">
         <ng-container *ngFor="let photo of activity.photos">
-          <img [ngSrc]="photo.urlCard" width="300" height="181" alt="Titulo de la foto: {{photo.publicId}}">
+          <img [ngSrc]="photo.url" width="300" height="181" alt="Titulo de la foto: {{photo.publicId}}">
         </ng-container>
       </ng-container>
     </section>
